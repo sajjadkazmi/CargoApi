@@ -1,0 +1,42 @@
+﻿@model Cargo.Models.CAR_DEF_CLIENT_STATUS
+@{
+    ViewBag.Title = "AddOrEdit";
+}
+
+<h3 style="text-align:center;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">DEFINE CLIENT STATUS DETAILS</h3>
+
+<div class="form-body">
+    @using (Html.BeginForm())
+    {
+        @*@Html.HiddenFor(model => model.PARTY_CODE)*@
+        <table>
+            <tbody>
+                <tr>
+
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TYPE)
+                            @Html.EditorFor(model => model.TYPE)
+                            @Html.ValidationMessageFor(model => model.TYPE)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DESC)
+                            @Html.EditorFor(model => model.DESC)
+                            @Html.ValidationMessageFor(model => model.DESC)
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn button" />
+            <input type="reset" value="Reset" class="btn button" />
+        </div>
+    }
+</div>
+
+

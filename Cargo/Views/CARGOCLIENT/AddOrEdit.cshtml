@@ -1,0 +1,141 @@
+﻿@model Cargo.Models.mvcCargoModel
+@{
+    ViewBag.Title = "AddOrEdit";
+}
+<h3 style="text-align:center;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CARGO CLIENTS</h3>
+<div class="form-body">
+    @using (Html.BeginForm())
+    {
+        @*@Html.HiddenFor(model => model.PARTY_CODE)*@
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CREATION)
+                            @Html.EditorFor(model => model.CREATION)
+                            @Html.ValidationMessageFor(model => model.CREATION)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NAME)
+                            @Html.EditorFor(model => model.NAME)
+                            @Html.ValidationMessageFor(model => model.NAME)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ADDRESS)
+                            @Html.EditorFor(model => model.ADDRESS)
+                            @Html.ValidationMessageFor(model => model.ADDRESS)
+                        </div>
+                    </td>
+                    </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ADDRESS_CITY)
+                            @Html.EditorFor(model => model.ADDRESS_CITY)
+                            @Html.ValidationMessageFor(model => model.ADDRESS_CITY)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EMAIL)
+                            @Html.EditorFor(model => model.EMAIL)
+                            @Html.ValidationMessageFor(model => model.EMAIL)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CNIC)
+                            @Html.EditorFor(model => model.CNIC)
+                            @Html.ValidationMessageFor(model => model.CNIC)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CNIC_EXPIRY)
+                            @Html.EditorFor(model => model.CNIC_EXPIRY)
+                            @Html.ValidationMessageFor(model => model.CNIC_EXPIRY)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NTN)
+                            @Html.EditorFor(model => model.NTN)
+                            @Html.ValidationMessageFor(model => model.NTN)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.INCORP_NO)
+                            @Html.EditorFor(model => model.INCORP_NO)
+                            @Html.ValidationMessageFor(model => model.INCORP_NO)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CONTACT_PERSON)
+                            @Html.EditorFor(model => model.CONTACT_PERSON)
+                            @Html.ValidationMessageFor(model => model.CONTACT_PERSON)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CONTACT_PERSON_CELL)
+                            @Html.EditorFor(model => model.CONTACT_PERSON_CELL)
+                            @Html.ValidationMessageFor(model => model.CONTACT_PERSON_CELL)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CONTACT_PERSON_CNIC)
+                            @Html.EditorFor(model => model.CONTACT_PERSON_CNIC)
+                            @Html.ValidationMessageFor(model => model.CONTACT_PERSON_CNIC)
+                        </div>
+                    </td>
+                    </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MARKET_MANAGER)
+                            @Html.DropDownListFor(x => x.MARKET_MANAGER, ViewBag.Mgrlist as SelectList, "--select--", new { @class = "form-controling" })
+                            @*@Html.ValidationMessageFor(model => model.MARKET_MANAGER)*@
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BUS_TYPE)
+                            @Html.DropDownListFor(x => x.BUS_TYPE, ViewBag.BusTypelist as SelectList, "--select--", new { @class = "form-controling" })
+                            @*@Html.ValidationMessageFor(model => model.MARKET_MANAGER)*@
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CLIENT_TYPE)
+                            @Html.DropDownListFor(x => x.CLIENT_TYPE, ViewBag.ClientTypelist as SelectList, "--select--", new { @class = "form-controling" })
+                            @*@Html.ValidationMessageFor(model => model.MARKET_MANAGER)*@
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+       
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn button" />
+            <input type="reset" value="Reset" class="btn button" />
+        </div>
+    }
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}
+
+

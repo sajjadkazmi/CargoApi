@@ -1,0 +1,797 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CARGOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CAR_CLIENT">
+          <Key>
+            <PropertyRef Name="PARTY_CODE" />
+          </Key>
+          <Property Name="CREATION" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="BUS_TYPE" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="CLIENT_TYPE" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="CLIENT_STATUS" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="PARTY_CODE" Type="numeric" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar(max)" />
+          <Property Name="ADDRESS" Type="varchar(max)" />
+          <Property Name="ADDRESS_PERM" Type="varchar(max)" />
+          <Property Name="ADDRESS_PRES" Type="varchar(max)" />
+          <Property Name="ADDRESS_CITY" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE" Type="varchar(max)" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+          <Property Name="CNIC" Type="numeric" Precision="15" Scale="0" />
+          <Property Name="CNIC_EXPIRY" Type="date" />
+          <Property Name="NTN" Type="varchar" MaxLength="50" />
+          <Property Name="INCORP_NO" Type="varchar" MaxLength="50" />
+          <Property Name="INCORP_DATE" Type="date" />
+          <Property Name="CONTACT_PERSON" Type="varchar(max)" />
+          <Property Name="CONTACT_PERSON_CNIC" Type="numeric" Precision="15" Scale="0" />
+          <Property Name="CONTACT_PERSON_DESIG" Type="varchar(max)" />
+          <Property Name="CONTACT_PERSON_CELL" Type="varchar" MaxLength="50" />
+          <Property Name="CONTACT_PERSON_EMAIL" Type="varchar(max)" />
+          <Property Name="MARKET_MANAGER" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="NO_OF_STAFF" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="NO_OF_OFF" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="YEARLY_TURNOVER" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="COMMENT" Type="varchar(max)" />
+          <Property Name="AUTH_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="AUTH_DATE" Type="datetime" />
+          <Property Name="AUTH_BY" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CAR_CLIENT_DIR">
+          <Key>
+            <PropertyRef Name="PARTY_CODE" />
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="PARTY_CODE" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CODE" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="varchar(max)" />
+          <Property Name="ADDRESS" Type="varchar(max)" />
+          <Property Name="ADDRESS_PERM" Type="varchar(max)" />
+          <Property Name="FATHER" Type="varchar" MaxLength="80" />
+          <Property Name="MOTHER" Type="varchar" MaxLength="80" />
+          <Property Name="GENDER" Type="varchar" MaxLength="1" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="MARITAL" Type="varchar" MaxLength="1" />
+          <Property Name="SPOUSE" Type="varchar" MaxLength="50" />
+          <Property Name="CNIC" Type="numeric" Precision="13" Scale="0" />
+          <Property Name="CNIC_EXPIRY" Type="date" />
+          <Property Name="PASSPORT_NO" Type="varchar" MaxLength="50" />
+          <Property Name="PROFESSION" Type="varchar" MaxLength="50" />
+          <Property Name="BIRTH_COUNTRY" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="BIRTH_CITY" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="BIRTH_PLACE" Type="varchar" MaxLength="50" />
+          <Property Name="NATIONALITY" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="COS" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="COS_ADDRESS" Type="varchar(max)" />
+          <Property Name="AUTH_SIGNATORY" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_ACC_MGR">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMP_CODE" Type="varchar" MaxLength="7" />
+          <Property Name="NAME" Type="varchar(max)" />
+          <Property Name="DESIG" Type="varchar" MaxLength="80" />
+          <Property Name="BRANCH_CODE" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="PHONE" Type="varchar" MaxLength="60" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="60" />
+          <Property Name="MOBILE" Type="varchar" MaxLength="60" />
+          <Property Name="SIGN" Type="image" />
+          <Property Name="AUTH_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="AUTH_DATE" Type="datetime" />
+          <Property Name="AUTH_BY" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="varchar(max)" />
+          <Property Name="INACTIVE" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_BOOK_TYPE">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DESC" Type="varchar(max)" />
+          <Property Name="AUTH_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="AUTH_DATE" Type="datetime" />
+          <Property Name="AUTH_BY" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="varchar(max)" />
+          <Property Name="INACTIVE" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_BRANCH">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DESC" Type="varchar(max)" Nullable="false" />
+          <Property Name="ABRV" Type="varchar" MaxLength="50" />
+          <Property Name="CITY_CODE" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="HDBR_CD" Type="numeric" Precision="2" Scale="0" />
+          <Property Name="ADDRESS" Type="varchar(max)" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="80" />
+          <Property Name="MANAGER" Type="varchar(max)" />
+          <Property Name="AUTH_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="AUTH_DATE" Type="datetime" />
+          <Property Name="AUTH_BY" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="varchar(max)" />
+          <Property Name="INACTIVE" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_BUS_NATURE">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DESC" Type="varchar(max)" />
+          <Property Name="AUTH_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="AUTH_DATE" Type="datetime" />
+          <Property Name="AUTH_BY" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="varchar(max)" />
+          <Property Name="INACTIVE" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_BUS_TYPE">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESC" Type="varchar(max)" />
+          <Property Name="AUTH_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="AUTH_DATE" Type="datetime" />
+          <Property Name="AUTH_BY" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="varchar(max)" />
+          <Property Name="INACTIVE" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_CLIENT_STATUS">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TYPE" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="DESC" Type="varchar(max)" />
+          <Property Name="AUTH_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="AUTH_DATE" Type="datetime" />
+          <Property Name="AUTH_BY" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="varchar(max)" />
+          <Property Name="INACTIVE" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_CLIENT_TYPE">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TYPE" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="DESC" Type="varchar(max)" />
+          <Property Name="AUTH_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="AUTH_DATE" Type="datetime" />
+          <Property Name="AUTH_BY" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="varchar(max)" />
+          <Property Name="INACTIVE" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_SUP_TYPE">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DESC" Type="varchar(max)" />
+          <Property Name="AUTH_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="AUTH_DATE" Type="datetime" />
+          <Property Name="AUTH_BY" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="varchar(max)" />
+          <Property Name="INACTIVE" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_INQ">
+          <Key>
+            <PropertyRef Name="TRAN_CODE" />
+          </Key>
+          <Property Name="TRAN_CODE" Type="numeric" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TRAN_DATE" Type="date" />
+          <Property Name="VALID_DATE" Type="date" />
+          <Property Name="BUS_TYPE" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="CLIENT_STATUS" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="NAME" Type="varchar(max)" />
+          <Property Name="ADDRESS" Type="varchar(max)" />
+          <Property Name="PHONE" Type="varchar(max)" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+          <Property Name="CNIC" Type="numeric" Precision="15" Scale="0" />
+          <Property Name="NTN" Type="varchar" MaxLength="50" />
+          <Property Name="INCORP_NO" Type="varchar" MaxLength="50" />
+          <Property Name="INCORP_DATE" Type="date" />
+          <Property Name="CONTACT_PERSON" Type="varchar(max)" />
+          <Property Name="CONTACT_PERSON_CNIC" Type="numeric" Precision="15" Scale="0" />
+          <Property Name="CONTACT_PERSON_DESIG" Type="varchar(max)" />
+          <Property Name="CONTACT_PERSON_CELL" Type="varchar" MaxLength="50" />
+          <Property Name="CONTACT_PERSON_EMAIL" Type="varchar(max)" />
+          <Property Name="MARKET_MANAGER" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="DESTINATION" Type="varchar(max)" />
+          <Property Name="PACK_TYPE" Type="varchar(max)" />
+          <Property Name="MASS" Type="varchar(max)" />
+          <Property Name="CUST_CLR_DATE" Type="date" />
+          <Property Name="PORT_NAME" Type="varchar(max)" />
+          <Property Name="COMMENT" Type="varchar(max)" />
+          <Property Name="AUTH_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="AUTH_DATE" Type="datetime" />
+          <Property Name="AUTH_BY" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CAR_SUPPLIER">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CREATION" Type="date" />
+          <Property Name="CODE" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TYPE" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="NAME" Type="varchar(max)" />
+          <Property Name="ADDRESS" Type="varchar(max)" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="NTN" Type="varchar" MaxLength="50" />
+          <Property Name="CNIC" Type="numeric" Precision="13" Scale="0" />
+          <Property Name="TAX_STATUS" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="EXAMPT_STATUS" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="AUTH_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="AUTH_DATE" Type="datetime" />
+          <Property Name="AUTH_BY" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="varchar(max)" />
+          <Property Name="INACTIVE" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="CityName" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CARGOModelStoreContainer">
+          <EntitySet Name="CAR_CLIENT" EntityType="Self.CAR_CLIENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAR_CLIENT_DIR" EntityType="Self.CAR_CLIENT_DIR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAR_DEF_ACC_MGR" EntityType="Self.CAR_DEF_ACC_MGR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAR_DEF_BOOK_TYPE" EntityType="Self.CAR_DEF_BOOK_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAR_DEF_BRANCH" EntityType="Self.CAR_DEF_BRANCH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAR_DEF_BUS_NATURE" EntityType="Self.CAR_DEF_BUS_NATURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAR_DEF_BUS_TYPE" EntityType="Self.CAR_DEF_BUS_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAR_DEF_CLIENT_STATUS" EntityType="Self.CAR_DEF_CLIENT_STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAR_DEF_CLIENT_TYPE" EntityType="Self.CAR_DEF_CLIENT_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAR_DEF_SUP_TYPE" EntityType="Self.CAR_DEF_SUP_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAR_INQ" EntityType="Self.CAR_INQ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAR_SUPPLIER" EntityType="Self.CAR_SUPPLIER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CARGOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CAR_CLIENT">
+          <Key>
+            <PropertyRef Name="PARTY_CODE" />
+          </Key>
+          <Property Name="CREATION" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="BUS_TYPE" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="CLIENT_TYPE" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="CLIENT_STATUS" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="PARTY_CODE" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS_PERM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS_PRES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS_CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CNIC" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="CNIC_EXPIRY" Type="DateTime" Precision="0" />
+          <Property Name="NTN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INCORP_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INCORP_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CONTACT_PERSON" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_PERSON_CNIC" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="CONTACT_PERSON_DESIG" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_PERSON_CELL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_PERSON_EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MARKET_MANAGER" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="NO_OF_STAFF" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="NO_OF_OFF" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="YEARLY_TURNOVER" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AUTH_BY" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_BOOK_TYPE">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AUTH_BY" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="INACTIVE" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_BRANCH">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ABRV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CITY_CODE" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="HDBR_CD" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="MANAGER" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AUTH_BY" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="INACTIVE" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_BUS_NATURE">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AUTH_BY" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="INACTIVE" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_SUP_TYPE">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AUTH_BY" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="INACTIVE" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_SUPPLIER">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CREATION" Type="DateTime" Precision="0" />
+          <Property Name="CODE" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TYPE" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NTN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CNIC" Type="Decimal" Precision="13" Scale="0" />
+          <Property Name="TAX_STATUS" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="EXAMPT_STATUS" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="AUTH_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AUTH_BY" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="INACTIVE" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="CARGOEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CAR_CLIENT" EntityType="Self.CAR_CLIENT" />
+          <EntitySet Name="CAR_DEF_BOOK_TYPE" EntityType="Self.CAR_DEF_BOOK_TYPE" />
+          <EntitySet Name="CAR_DEF_BRANCH" EntityType="Self.CAR_DEF_BRANCH" />
+          <EntitySet Name="CAR_DEF_BUS_NATURE" EntityType="Self.CAR_DEF_BUS_NATURE" />
+          <EntitySet Name="CAR_DEF_SUP_TYPE" EntityType="Self.CAR_DEF_SUP_TYPE" />
+          <EntitySet Name="CAR_SUPPLIER" EntityType="Self.CAR_SUPPLIER" />
+          <EntitySet Name="Cities" EntityType="CARGOModel.City" />
+          <EntitySet Name="CAR_CLIENT_DIR" EntityType="CARGOModel.CAR_CLIENT_DIR" />
+          <EntitySet Name="CAR_DEF_CLIENT_TYPE" EntityType="CARGOModel.CAR_DEF_CLIENT_TYPE" />
+          <EntitySet Name="CAR_INQ" EntityType="CARGOModel.CAR_INQ" />
+          <EntitySet Name="CAR_DEF_ACC_MGR" EntityType="CARGOModel.CAR_DEF_ACC_MGR" />
+          <EntitySet Name="CAR_DEF_BUS_TYPE" EntityType="CARGOModel.CAR_DEF_BUS_TYPE" />
+          <EntitySet Name="CAR_DEF_CLIENT_STATUS" EntityType="CARGOModel.CAR_DEF_CLIENT_STATUS" />
+        </EntityContainer>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CAR_CLIENT_DIR">
+          <Key>
+            <PropertyRef Name="PARTY_CODE" />
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="PARTY_CODE" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CODE" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS_PERM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FATHER" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="MOTHER" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="MARITAL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SPOUSE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CNIC" Type="Decimal" Precision="13" Scale="0" />
+          <Property Name="CNIC_EXPIRY" Type="DateTime" Precision="0" />
+          <Property Name="PASSPORT_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PROFESSION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BIRTH_COUNTRY" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="BIRTH_CITY" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="BIRTH_PLACE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONALITY" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="COS" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="COS_ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_SIGNATORY" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_CLIENT_TYPE">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AUTH_BY" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="INACTIVE" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_INQ">
+          <Key>
+            <PropertyRef Name="TRAN_CODE" />
+          </Key>
+          <Property Name="TRAN_CODE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TRAN_DATE" Type="DateTime" Precision="0" />
+          <Property Name="VALID_DATE" Type="DateTime" Precision="0" />
+          <Property Name="BUS_TYPE" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="CLIENT_STATUS" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CNIC" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="NTN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INCORP_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INCORP_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CONTACT_PERSON" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_PERSON_CNIC" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="CONTACT_PERSON_DESIG" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_PERSON_CELL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_PERSON_EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MARKET_MANAGER" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="DESTINATION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PACK_TYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MASS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CUST_CLR_DATE" Type="DateTime" Precision="0" />
+          <Property Name="PORT_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AUTH_BY" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_ACC_MGR">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMP_CODE" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DESIG" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH_CODE" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="PHONE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="MOBILE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="SIGN" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="AUTH_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AUTH_BY" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="INACTIVE" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_BUS_TYPE">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AUTH_BY" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="INACTIVE" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="CAR_DEF_CLIENT_STATUS">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AUTH_BY" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="AUTH_REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="INACTIVE" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CARGOModelStoreContainer" CdmEntityContainer="CARGOEntities1">
+          <EntitySetMapping Name="CAR_CLIENT">
+            <EntityTypeMapping TypeName="CARGOModel.CAR_CLIENT">
+              <MappingFragment StoreEntitySet="CAR_CLIENT">
+                <ScalarProperty Name="CREATION" ColumnName="CREATION" />
+                <ScalarProperty Name="BUS_TYPE" ColumnName="BUS_TYPE" />
+                <ScalarProperty Name="CLIENT_TYPE" ColumnName="CLIENT_TYPE" />
+                <ScalarProperty Name="CLIENT_STATUS" ColumnName="CLIENT_STATUS" />
+                <ScalarProperty Name="PARTY_CODE" ColumnName="PARTY_CODE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="ADDRESS_PERM" ColumnName="ADDRESS_PERM" />
+                <ScalarProperty Name="ADDRESS_PRES" ColumnName="ADDRESS_PRES" />
+                <ScalarProperty Name="ADDRESS_CITY" ColumnName="ADDRESS_CITY" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="CNIC_EXPIRY" ColumnName="CNIC_EXPIRY" />
+                <ScalarProperty Name="NTN" ColumnName="NTN" />
+                <ScalarProperty Name="INCORP_NO" ColumnName="INCORP_NO" />
+                <ScalarProperty Name="INCORP_DATE" ColumnName="INCORP_DATE" />
+                <ScalarProperty Name="CONTACT_PERSON" ColumnName="CONTACT_PERSON" />
+                <ScalarProperty Name="CONTACT_PERSON_CNIC" ColumnName="CONTACT_PERSON_CNIC" />
+                <ScalarProperty Name="CONTACT_PERSON_DESIG" ColumnName="CONTACT_PERSON_DESIG" />
+                <ScalarProperty Name="CONTACT_PERSON_CELL" ColumnName="CONTACT_PERSON_CELL" />
+                <ScalarProperty Name="CONTACT_PERSON_EMAIL" ColumnName="CONTACT_PERSON_EMAIL" />
+                <ScalarProperty Name="MARKET_MANAGER" ColumnName="MARKET_MANAGER" />
+                <ScalarProperty Name="NO_OF_STAFF" ColumnName="NO_OF_STAFF" />
+                <ScalarProperty Name="NO_OF_OFF" ColumnName="NO_OF_OFF" />
+                <ScalarProperty Name="YEARLY_TURNOVER" ColumnName="YEARLY_TURNOVER" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="AUTH_STATUS" ColumnName="AUTH_STATUS" />
+                <ScalarProperty Name="AUTH_DATE" ColumnName="AUTH_DATE" />
+                <ScalarProperty Name="AUTH_BY" ColumnName="AUTH_BY" />
+                <ScalarProperty Name="AUTH_REMARKS" ColumnName="AUTH_REMARKS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAR_DEF_BOOK_TYPE">
+            <EntityTypeMapping TypeName="CARGOModel.CAR_DEF_BOOK_TYPE">
+              <MappingFragment StoreEntitySet="CAR_DEF_BOOK_TYPE">
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="AUTH_STATUS" ColumnName="AUTH_STATUS" />
+                <ScalarProperty Name="AUTH_DATE" ColumnName="AUTH_DATE" />
+                <ScalarProperty Name="AUTH_BY" ColumnName="AUTH_BY" />
+                <ScalarProperty Name="AUTH_REMARKS" ColumnName="AUTH_REMARKS" />
+                <ScalarProperty Name="INACTIVE" ColumnName="INACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAR_DEF_BRANCH">
+            <EntityTypeMapping TypeName="CARGOModel.CAR_DEF_BRANCH">
+              <MappingFragment StoreEntitySet="CAR_DEF_BRANCH">
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="ABRV" ColumnName="ABRV" />
+                <ScalarProperty Name="CITY_CODE" ColumnName="CITY_CODE" />
+                <ScalarProperty Name="HDBR_CD" ColumnName="HDBR_CD" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="MANAGER" ColumnName="MANAGER" />
+                <ScalarProperty Name="AUTH_STATUS" ColumnName="AUTH_STATUS" />
+                <ScalarProperty Name="AUTH_DATE" ColumnName="AUTH_DATE" />
+                <ScalarProperty Name="AUTH_BY" ColumnName="AUTH_BY" />
+                <ScalarProperty Name="AUTH_REMARKS" ColumnName="AUTH_REMARKS" />
+                <ScalarProperty Name="INACTIVE" ColumnName="INACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAR_DEF_BUS_NATURE">
+            <EntityTypeMapping TypeName="CARGOModel.CAR_DEF_BUS_NATURE">
+              <MappingFragment StoreEntitySet="CAR_DEF_BUS_NATURE">
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="AUTH_STATUS" ColumnName="AUTH_STATUS" />
+                <ScalarProperty Name="AUTH_DATE" ColumnName="AUTH_DATE" />
+                <ScalarProperty Name="AUTH_BY" ColumnName="AUTH_BY" />
+                <ScalarProperty Name="AUTH_REMARKS" ColumnName="AUTH_REMARKS" />
+                <ScalarProperty Name="INACTIVE" ColumnName="INACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAR_DEF_SUP_TYPE">
+            <EntityTypeMapping TypeName="CARGOModel.CAR_DEF_SUP_TYPE">
+              <MappingFragment StoreEntitySet="CAR_DEF_SUP_TYPE">
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="AUTH_STATUS" ColumnName="AUTH_STATUS" />
+                <ScalarProperty Name="AUTH_DATE" ColumnName="AUTH_DATE" />
+                <ScalarProperty Name="AUTH_BY" ColumnName="AUTH_BY" />
+                <ScalarProperty Name="AUTH_REMARKS" ColumnName="AUTH_REMARKS" />
+                <ScalarProperty Name="INACTIVE" ColumnName="INACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAR_SUPPLIER">
+            <EntityTypeMapping TypeName="CARGOModel.CAR_SUPPLIER">
+              <MappingFragment StoreEntitySet="CAR_SUPPLIER">
+                <ScalarProperty Name="CREATION" ColumnName="CREATION" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="NTN" ColumnName="NTN" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="TAX_STATUS" ColumnName="TAX_STATUS" />
+                <ScalarProperty Name="EXAMPT_STATUS" ColumnName="EXAMPT_STATUS" />
+                <ScalarProperty Name="AUTH_STATUS" ColumnName="AUTH_STATUS" />
+                <ScalarProperty Name="AUTH_DATE" ColumnName="AUTH_DATE" />
+                <ScalarProperty Name="AUTH_BY" ColumnName="AUTH_BY" />
+                <ScalarProperty Name="AUTH_REMARKS" ColumnName="AUTH_REMARKS" />
+                <ScalarProperty Name="INACTIVE" ColumnName="INACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="CARGOModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAR_CLIENT_DIR">
+            <EntityTypeMapping TypeName="CARGOModel.CAR_CLIENT_DIR">
+              <MappingFragment StoreEntitySet="CAR_CLIENT_DIR">
+                <ScalarProperty Name="AUTH_SIGNATORY" ColumnName="AUTH_SIGNATORY" />
+                <ScalarProperty Name="COS_ADDRESS" ColumnName="COS_ADDRESS" />
+                <ScalarProperty Name="COS" ColumnName="COS" />
+                <ScalarProperty Name="NATIONALITY" ColumnName="NATIONALITY" />
+                <ScalarProperty Name="BIRTH_PLACE" ColumnName="BIRTH_PLACE" />
+                <ScalarProperty Name="BIRTH_CITY" ColumnName="BIRTH_CITY" />
+                <ScalarProperty Name="BIRTH_COUNTRY" ColumnName="BIRTH_COUNTRY" />
+                <ScalarProperty Name="PROFESSION" ColumnName="PROFESSION" />
+                <ScalarProperty Name="PASSPORT_NO" ColumnName="PASSPORT_NO" />
+                <ScalarProperty Name="CNIC_EXPIRY" ColumnName="CNIC_EXPIRY" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="SPOUSE" ColumnName="SPOUSE" />
+                <ScalarProperty Name="MARITAL" ColumnName="MARITAL" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="MOTHER" ColumnName="MOTHER" />
+                <ScalarProperty Name="FATHER" ColumnName="FATHER" />
+                <ScalarProperty Name="ADDRESS_PERM" ColumnName="ADDRESS_PERM" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="PARTY_CODE" ColumnName="PARTY_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAR_DEF_CLIENT_TYPE">
+            <EntityTypeMapping TypeName="CARGOModel.CAR_DEF_CLIENT_TYPE">
+              <MappingFragment StoreEntitySet="CAR_DEF_CLIENT_TYPE">
+                <ScalarProperty Name="INACTIVE" ColumnName="INACTIVE" />
+                <ScalarProperty Name="AUTH_REMARKS" ColumnName="AUTH_REMARKS" />
+                <ScalarProperty Name="AUTH_BY" ColumnName="AUTH_BY" />
+                <ScalarProperty Name="AUTH_DATE" ColumnName="AUTH_DATE" />
+                <ScalarProperty Name="AUTH_STATUS" ColumnName="AUTH_STATUS" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAR_INQ">
+            <EntityTypeMapping TypeName="CARGOModel.CAR_INQ">
+              <MappingFragment StoreEntitySet="CAR_INQ">
+                <ScalarProperty Name="AUTH_REMARKS" ColumnName="AUTH_REMARKS" />
+                <ScalarProperty Name="AUTH_BY" ColumnName="AUTH_BY" />
+                <ScalarProperty Name="AUTH_DATE" ColumnName="AUTH_DATE" />
+                <ScalarProperty Name="AUTH_STATUS" ColumnName="AUTH_STATUS" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="PORT_NAME" ColumnName="PORT_NAME" />
+                <ScalarProperty Name="CUST_CLR_DATE" ColumnName="CUST_CLR_DATE" />
+                <ScalarProperty Name="MASS" ColumnName="MASS" />
+                <ScalarProperty Name="PACK_TYPE" ColumnName="PACK_TYPE" />
+                <ScalarProperty Name="DESTINATION" ColumnName="DESTINATION" />
+                <ScalarProperty Name="MARKET_MANAGER" ColumnName="MARKET_MANAGER" />
+                <ScalarProperty Name="CONTACT_PERSON_EMAIL" ColumnName="CONTACT_PERSON_EMAIL" />
+                <ScalarProperty Name="CONTACT_PERSON_CELL" ColumnName="CONTACT_PERSON_CELL" />
+                <ScalarProperty Name="CONTACT_PERSON_DESIG" ColumnName="CONTACT_PERSON_DESIG" />
+                <ScalarProperty Name="CONTACT_PERSON_CNIC" ColumnName="CONTACT_PERSON_CNIC" />
+                <ScalarProperty Name="CONTACT_PERSON" ColumnName="CONTACT_PERSON" />
+                <ScalarProperty Name="INCORP_DATE" ColumnName="INCORP_DATE" />
+                <ScalarProperty Name="INCORP_NO" ColumnName="INCORP_NO" />
+                <ScalarProperty Name="NTN" ColumnName="NTN" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CLIENT_STATUS" ColumnName="CLIENT_STATUS" />
+                <ScalarProperty Name="BUS_TYPE" ColumnName="BUS_TYPE" />
+                <ScalarProperty Name="VALID_DATE" ColumnName="VALID_DATE" />
+                <ScalarProperty Name="TRAN_DATE" ColumnName="TRAN_DATE" />
+                <ScalarProperty Name="TRAN_CODE" ColumnName="TRAN_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAR_DEF_ACC_MGR">
+            <EntityTypeMapping TypeName="CARGOModel.CAR_DEF_ACC_MGR">
+              <MappingFragment StoreEntitySet="CAR_DEF_ACC_MGR">
+                <ScalarProperty Name="INACTIVE" ColumnName="INACTIVE" />
+                <ScalarProperty Name="AUTH_REMARKS" ColumnName="AUTH_REMARKS" />
+                <ScalarProperty Name="AUTH_BY" ColumnName="AUTH_BY" />
+                <ScalarProperty Name="AUTH_DATE" ColumnName="AUTH_DATE" />
+                <ScalarProperty Name="AUTH_STATUS" ColumnName="AUTH_STATUS" />
+                <ScalarProperty Name="SIGN" ColumnName="SIGN" />
+                <ScalarProperty Name="MOBILE" ColumnName="MOBILE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="BRANCH_CODE" ColumnName="BRANCH_CODE" />
+                <ScalarProperty Name="DESIG" ColumnName="DESIG" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="EMP_CODE" ColumnName="EMP_CODE" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAR_DEF_BUS_TYPE">
+            <EntityTypeMapping TypeName="CARGOModel.CAR_DEF_BUS_TYPE">
+              <MappingFragment StoreEntitySet="CAR_DEF_BUS_TYPE">
+                <ScalarProperty Name="INACTIVE" ColumnName="INACTIVE" />
+                <ScalarProperty Name="AUTH_REMARKS" ColumnName="AUTH_REMARKS" />
+                <ScalarProperty Name="AUTH_BY" ColumnName="AUTH_BY" />
+                <ScalarProperty Name="AUTH_DATE" ColumnName="AUTH_DATE" />
+                <ScalarProperty Name="AUTH_STATUS" ColumnName="AUTH_STATUS" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAR_DEF_CLIENT_STATUS">
+            <EntityTypeMapping TypeName="CARGOModel.CAR_DEF_CLIENT_STATUS">
+              <MappingFragment StoreEntitySet="CAR_DEF_CLIENT_STATUS">
+                <ScalarProperty Name="INACTIVE" ColumnName="INACTIVE" />
+                <ScalarProperty Name="AUTH_REMARKS" ColumnName="AUTH_REMARKS" />
+                <ScalarProperty Name="AUTH_BY" ColumnName="AUTH_BY" />
+                <ScalarProperty Name="AUTH_DATE" ColumnName="AUTH_DATE" />
+                <ScalarProperty Name="AUTH_STATUS" ColumnName="AUTH_STATUS" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

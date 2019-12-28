@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Cargo.Models.mvcCargoModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3 style="text-align:center;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Cargo Client Details</h3>
+@using (Html.BeginForm("Index", "CARGOCLIENT", FormMethod.Get))
+{
+    <div class="row form-inline" >
+
+    <a href="@Url.Action("AddOrEdit","CARGOCLIENT")" class="btn btn-default"><i class="fa fa-plus"></i> Create New</a>
+        <div style="float:right;">
+
+    @Html.TextBox("search")<input type="submit" value="search"  />
+        </div>
+    </div>
+
+}
+<p>
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CREATION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PARTY_CODE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NAME)
+        </th>
+        <th>ACTION</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CREATION)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.BUS_TYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLIENT_TYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLIENT_STATUS)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.PARTY_CODE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NAME)
+            </td>
+            <td>
+                <a href="@Url.Action("AddOrEdit","CARGOCLIENT", new {id = item.PARTY_CODE})" class="btn btn-default"> <i class="fa fa-pencil"></i>  View</a>
+
+                <a href="@Url.Action("Delete","CARGOCLIENT", new {id = item.PARTY_CODE})" class="btn btn-default"> <i class="fa fa-trash"></i> delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>
+    function clear() {
+        document.getElementById('search').value = '';
+    };
+</script>
